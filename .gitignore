@@ -31,6 +31,12 @@
 .pub/
 /build/
 
+# Generated part files
+*.chopper.dart
+*.g.dart
+*.retrofit.dart
+*.moor.dart
+
 # Web related
 lib/generated_plugin_registrant.dart
 

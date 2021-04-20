@@ -35,6 +35,9 @@ dependencies:
   ## The following adds the Cupertino Icons font to your application.
   ## Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  animations: ^2.0.0
+  #material_floating_search_bar: ^0.3.4
+
   
   ## Json To Dataclass
   json_annotation: any
@@ -45,29 +48,48 @@ dependencies:
 
   ## Device Information
   connectivity_plus: ^1.0.0
+  connectivity: ^3.0.3
   device_info_plus: ^1.0.0
+  device_info: ^2.0.0
   battery_plus: ^1.0.0
+  battery: ^2.0.1
   network_info_plus: ^1.0.0
   geolocator: ^7.0.3
   path_provider: ^2.0.1
   path: ^1.8.0
+  local_auth: ^1.1.4
 
   ## Networking
   retrofit: ^2.0.0-beta1
   chopper: ^4.0.0-nullsafety.1
+  faker: ^2.0.0-rc.2
 
   ##State Management
   flutter_riverpod: ^0.14.0+1
   flutter_redux: ^0.8.2
+  redux: ^5.0.0
   infinite_scroll_pagination: ^3.0.1
-  provider: ^4.3.2+2
+  #provider: ^4.3.2+2
+  provider: ^5.0.0
+  flutter_bloc: ^7.0.0
+  bloc: ^7.0.0
   
   # Phone utilities
   #url_launcher: ^5.5.3
   #url_launcher: any
+  image_picker: ^0.7.4
+  url_launcher: ^6.0.3
+  google_maps_flutter: ^2.0.3
+  camera: ^0.8.1
+  in_app_purchase: ^0.5.2
+  sensors: ^2.0.0
+  file_selector: ^0.8.2
+  firebase_dynamic_links: ^2.0.0
+
 
   # Storage
   hive_flutter: ^1.0.0
+  firebase_core: ^1.0.3
   firebase_auth: ^1.0.3
   firebase_storage: ^8.0.3
   sqflite: ^2.0.0+3
@@ -76,6 +98,10 @@ dependencies:
   firebase_in_app_messaging: ^0.5.0
   firebase_performance: ^0.7.0
   moor: ^4.2.1
+  shared_preferences: ^2.0.5
+  flutter_cache_manager: ^3.0.1
+  floor: ^1.0.1
+  floor_annotation: ^1.0.0
 
   # Validators
   phone_numbers_parser: ^0.0.4
@@ -93,13 +119,14 @@ dev_dependencies:
   # Code Generation
   build_runner: ^1.10.0
   moor_generator: ^4.2.1
-  retrofit_generator: ^2.0.0-beta3
-  chopper_generator: ^4.0.0-nullsafety.1
+  #retrofit_generator: ^2.0.0-beta3
+  floor_generator: ^1.0.0
+  #chopper_generator: ^4.0.0-nullsafety.1
   sqflite_common_ffi: ^2.0.0
+  #integration_test: ^1.0.2+2
 
   # Json
-  #json_model: any
-  #json_serializable: any
+  json_serializable: ^4.1.0
   
 
 # For information on the generic Dart part of this file, see the

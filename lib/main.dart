@@ -1,7 +1,47 @@
+import 'package:diginav/model/user.dart';
+import 'package:diginav/repository/local_repository.dart';
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 
+import 'repository/floor/db.dart';
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  fakeData();
   runApp(MyApp());
+}
+
+
+void fakeData() async {
+  //var migration = Migration(1, 2);
+  //var db = $FloorAppDatabase.databaseBuilder('app_database.db');
+  var db = $FloorAppDatabase.inMemoryDatabaseBuilder();
+  var database = await db.build();
+  var localDb = LocalRepository(database.userDao);
+
+  var userList = await localDb.userDao
+      .listUsers(DateTime.now().millisecondsSinceEpoch, 10);
+
+  if (userList == null) {
+    return;
+  }
+  if (userList.length <= 100000) {
+    for (var i = 0; i < 100; i++) {
+      var u = User(
+        uuid: faker.guid.guid(),
+        email: faker.internet.email(),
+        firstName: faker.person.firstName(),
+        middleName: faker.person.firstName(),
+        lastName: faker.person.lastName(),
+        birthday: faker.date.dateTime(minYear: 1970, maxYear: 2020),
+        phone: faker.phoneNumber.toString(),
+        role: faker.job.title(),
+      );
+      await localDb.userDao.addUser(u);
+      var dbUser = await localDb.userDao.getUser(u.uuid!);
+      print("$dbUser");
+    }
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -10,7 +50,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Diginav Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
