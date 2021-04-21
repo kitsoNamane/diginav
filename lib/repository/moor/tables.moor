@@ -15,5 +15,5 @@ CREATE TABLE users (
 listUsers: SELECT * FROM users WHERE updated_at = ? LIMIT ?;
 addUser:
 INSERT INTO users
-(uid, first_name, middle_name, last_name, birthdate, role, email, phone, created_at, updated_at);
-VALUES (?,?,?,?,?,?,?,?,?,?)
+(uid, first_name, middle_name, last_name, birthdate, role, email, phone, created_at, updated_at)
+VALUES (?,?,?,?,?,?,?,?,?,?);

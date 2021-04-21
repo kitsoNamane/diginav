@@ -14,17 +14,14 @@ void main() {
 
 void fakeData() async {
   //var migration = Migration(1, 2);
-  //var db = $FloorAppDatabase.databaseBuilder('app_database.db');
-  var db = $FloorAppDatabase.inMemoryDatabaseBuilder();
+  var db = $FloorAppDatabase.databaseBuilder('app_database.db');
+  //var db = $FloorAppDatabase.inMemoryDatabaseBuilder();
   var database = await db.build();
   var localDb = LocalRepository(database.userDao);
 
   var userList = await localDb.userDao
       .listUsers(DateTime.now().millisecondsSinceEpoch, 10);
 
-  if (userList == null) {
-    return;
-  }
   if (userList.length <= 100000) {
     for (var i = 0; i < 100; i++) {
       var u = User(
